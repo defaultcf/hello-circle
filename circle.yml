@@ -22,13 +22,16 @@ jobs:
 
       - run:
           name: Up container
-          command: docker-compose up -d
+          command: |
+            docker-compose up -d
 
       - run:
           name: Migrate
-          command: docker-compose run django python manage.py migrate
+          command: |
+            docker-compose run django python manage.py migrate
 
       - run:
           name: Runserver
-          command: docker-compose run django python manage.py runserver 0.0.0.0:3939
+          command: |
+            docker-compose run django python manage.py runserver 0.0.0.0:3939
 
